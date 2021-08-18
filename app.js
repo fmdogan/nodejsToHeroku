@@ -1,6 +1,8 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const Item = require("./models/items");
+
+const port = process.env.PORT || 3000;
 const app = express();
 
 // allows client to post a defined data
@@ -13,7 +15,7 @@ mongoose
   .connect(mongodb, { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => {
     console.log("connected");
-    app.listen(3000);
+    app.listen(port);
   })
   .catch((err) => console.log(err));
 
